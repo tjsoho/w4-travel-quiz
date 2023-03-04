@@ -1,33 +1,51 @@
 var questionContentEl = document.getElementById('questionContent');
 var answerContentEl = document.getElementById('answerContent');
 var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
+var questionsAll = 
+        [
+                {
+                question: "If you were to fly in a straight line, how many               kilometers are between Sydney and London?",
+                choices: ["22,000km", "8,000km", "17,000km", "30,000km",],
+                answer: 2      
+                },
+
+                {
+                question: "How long is the world's shortest flight",
+                choices: ["5 minutes", "1 minute", "3 minutes", "10 minutes",],
+                answer: 1        
+                },
+                
+                {
+                question: "Which is the busiest airport by passenger traffic",
+                choices: ["Charles de Gualle (Paris)", "Heathrow (London)", "LAX (Las Angeles)", "Hartsfield-Jackson (Atlanta)",],
+                answer: 3
+                },
+ 
+                {
+                question: "What is the most visited country in the world",
+                choices: ["France", "China", "Italy", "USA",],
+                answer: 0
+                }
+                
+        ]
+
 
 function questionaire() {
-allQuestions = {
-        'If you fly in a striaght line from Sydney to London how many kilometers will you fly?' : ['22,000km', '8,000km', '17,000km', '30,000km',[3]],
-        }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function questionaire() {
-        questionContentEl.textContent = allQuestions
+        questionContentEl.append = questionsAll
+        console.log('function is working')
+        
 }
 questionaire();
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -51,29 +69,3 @@ questionaire();
 
 
 
-
-/*            ***QUESTION FOR THE GAME***
-1. If you were to fly in a straight line, how many kilometers are between Sydney and London?
-        a) 22,000km
-        b) 8,000km
-        c) 17,000km (answer)
-        d) 30,000km
-
-2. How long is the world's shortest flight?
-        a) 5 minutes
-        b) 1 minute (answer - 2.7 km from Papa Westray to Orkney Westray - Islands of Scotland )
-        c) 3 minutes
-        d) 10 minutes
-
-3. Which is the busiest airport by passenger traffic?
-        a) Charles de Gualle (Paris)
-        b) Hethrow (London)
-        c) LAX (LA)
-        d) ATL (Atlanta) - Answer
-
-4. What is the most visited country in the world?
-        a) France (answer)
-        b) Italy
-        c) England
-        d) Unite States 
-*/
