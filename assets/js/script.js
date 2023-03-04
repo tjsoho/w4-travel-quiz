@@ -6,8 +6,8 @@ var nextQuestionEl = document.getElementById('nextQuestion');
 var questionnaireArray = [
 	questionnaire1,
 	questionnaire2,
-	questionnaire3,
-	questionnaire4
+	//questionnaire3,
+	//questionnaire4
 	];
 var questionsAll =
 	[
@@ -49,13 +49,18 @@ function questionnaire1() {
 	<button>${questionsAll[0].choices[1]}</button>	
 	<button>${questionsAll[0].choices[2]}</button>	
 	<button>${questionsAll[0].choices[3]}</button>
-	`;	
+	`;
+	if (questionsAll.choices[2] === true) {
+		console.log ("Yes!!!! You're off to a great start");
+	} else {
+		console.log("Shame! That wasn't it. The answer was C: 17,000km.");
+	} 
 }
 
 /*
 pseudo code for answers for question1: anser is [2]
 if 
-	button choices2 is clicked, 
+	button is clicked on choices array [2], 
 	console log You're off to a great start
 else
 	Shame! That wasn't right. The correct answer was C - 17,000km
