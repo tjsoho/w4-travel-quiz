@@ -33,15 +33,34 @@ document.addEventListener('click', startGame)
 
 function questionnaire1() {
         questionContentEl.textContent = questionsAll[0].question;
-                {
-                document.getElementById("questionContent").style.display = 'vissible'
-                }
         }
 
 
 function startGame() {
         questionnaire1()
 }
+
+
+// Timer For the game starts at 2 minutes
+var el = document.getElementById("timer"),
+  mins = 2,
+  secs = 0;
+
+function countDown() {
+        if (secs || mins) {
+        setTimeout(countDown, 1000); // Should be 1000, but I'm impatient
+        }
+       
+        el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
+        secs -= 1;
+                if (secs < 0) {
+                mins -= 1;
+                secs = 59;
+                }
+}
+
+countDown();
+
 
 /*
 
@@ -51,7 +70,7 @@ function startGame() {
 
 
 // If the start button is pushed run function 1
-// if next but is pushed run through function 2,3,4
+// if next but is pushed a function that runs through questionsAll array 1,2,3
 
 
 
