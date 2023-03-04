@@ -1,6 +1,7 @@
 var questionContentEl = document.getElementById('questionContent');
 var answerContentEl = document.getElementById('answerContent');
 var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
+var startGameEl = document.getElementById('startGame')
 var questionsAll = 
         [
                 {
@@ -25,34 +26,48 @@ var questionsAll =
                 question: "What is the most visited country in the world",
                 choices: ["France", "China", "Italy", "USA",],
                 answer: 0
-                }
-                
+                }  
         ]
 
+document.addEventListener('click', startGame)
 
-function questionaire() {
-        questionContentEl.append = questionsAll
-        console.log('function is working')
-        
+function questionnaire1() {
+        questionContentEl.textContent = questionsAll[0].question;
+                {
+                document.getElementById("questionContent").style.display = 'vissible'
+                }
+        }
+
+
+function startGame() {
+        questionnaire1()
 }
-questionaire();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
+
+
+
+
+
+
+// If the start button is pushed run function 1
+// if next but is pushed run through function 2,3,4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Start Button - going to need eventListener 'click' for both these steps
     /// start button actions the timer
 
@@ -65,7 +80,7 @@ questionaire();
 // If statement to end the game
     /// if timer runs out game ends
     /// if final question is answered game ends
-*/
 
+*/
 
 
