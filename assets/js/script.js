@@ -6,8 +6,8 @@ var nextQuestionEl = document.getElementById('nextQuestion');
 var questionnaireArray = [
 	questionnaire1,
 	questionnaire2,
-	//questionnaire3,
-	//questionnaire4
+	questionnaire3,
+	questionnaire4
 	];
 var questionsAll =
 	[
@@ -38,7 +38,6 @@ var questionsAll =
 
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
 startGameEl.addEventListener('click', startGame)
-
 function startGame() {
 	questionnaire1()
 }
@@ -50,12 +49,17 @@ function questionnaire1() {
 	<button>${questionsAll[0].choices[2]}</button>	
 	<button>${questionsAll[0].choices[3]}</button>
 	`;
-	if (questionsAll.choices[2] === true) {
+//call right answer function	
+
+if (questionsAll.choices[2] === true) {
 		console.log ("Yes!!!! You're off to a great start");
 	} else {
 		console.log("Shame! That wasn't it. The answer was C: 17,000km.");
 	} 
+
 }
+//Right Answer Function
+//if click event on 'right answer' else if click on wrong answer Imight need to be a seperate function, deduct timers
 
 /*
 pseudo code for answers for question1: anser is [2]
@@ -87,7 +91,23 @@ function questionnaire2() {
 	`;	
 }
 
+function questionnaire3() {
+	questionContentEl.innerHTML = `<div>${questionsAll[2].question}</div>
+	<button>${questionsAll[0].choices[0]}</button>	
+	<button>${questionsAll[0].choices[1]}</button>	
+	<button>${questionsAll[0].choices[2]}</button>	
+	<button>${questionsAll[0].choices[3]}</button>
+	`;	
+}
 
+function questionnaire4() {
+	questionContentEl.innerHTML = `<div>${questionsAll[3].question}</div>
+	<button>${questionsAll[0].choices[0]}</button>	
+	<button>${questionsAll[0].choices[1]}</button>	
+	<button>${questionsAll[0].choices[2]}</button>	
+	<button>${questionsAll[0].choices[3]}</button>
+	`;	
+}
 
 
 
