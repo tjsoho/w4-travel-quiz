@@ -1,12 +1,34 @@
-var questions = document.querySelector(".questions");
+var questionContentEl = document.getElementById('questionContent');
+var answerContentEl = document.getElementById('answerContent');
+var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
 
 function questionaire() {
-        wordBlank.textcontent = "First Question";
-        console.log("testing")
-        questionaire
+allQuestions = {
+        'If you fly in a striaght line from Sydney to London how many kilometers will you fly?' : ['22,000km', '8,000km', '17,000km', '30,000km',[3]],
+        }
+
 }
 
-questionaire
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function questionaire() {
+        questionContentEl.textContent = allQuestions
+}
+questionaire();
+
 
 
 

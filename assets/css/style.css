@@ -72,6 +72,7 @@
   .score {
     width: 30vw;
     height: 250px;
+    border: solid 1px black;
   }
 
   h3 {
