@@ -3,6 +3,7 @@ var questionIndex = 0
 var win = 0
 var loss = 0
 var secondsLeft = 60
+var winCountEl = document.getElementById("winCount")
 var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
@@ -49,13 +50,14 @@ var questionsAll =
 function startGame() {
 	console.log("We started the game")
 	questionnaire()
+	winCountEl.textContent = 0
 }
 
 function checkAnswer () {
 	if (this.textContent == questionsAll[questionIndex].answer){
 		console.log("ans is right");
 		answerContentEl.textContent = "Yes! You got it right! Well done!";
-		win++
+		//winCountEl.textContent = 0++
 	} 
 	else {
 		answerContentEl.textContent = "Shame! That was wrong! Better luck next time";
