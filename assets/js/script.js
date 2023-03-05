@@ -3,7 +3,6 @@ var answerContentEl = document.getElementById('answerContent');
 var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
 var startGameEl = document.getElementById('startGame');
 var nextQuestionEl = document.getElementById('nextQuestion');
-var choices = document.getElementsByName('choices')
 var questionnaireArray = [
 	questionnaire1,
 	//questionnaire2,
@@ -45,15 +44,28 @@ function startGame() {
 
 function questionnaire1() {
 	questionContentEl.innerHTML = `<div>${questionsAll[0].question}</div>
-	<button>${questionsAll[0].choices[0]}</button>	
-	<button>${questionsAll[0].choices[1]}</button>	
-	<button>${questionsAll[0].choices[2]}</button>	
-	<button>${questionsAll[0].choices[3]}</button>
+	<button class ="answer0">${questionsAll[0].choices[0]}</button>
+	<button class ="answer0">${questionsAll[0].choices[1]}</button>
+	<button class ="answer0">${questionsAll[0].choices[2]}</button>	
+	<button class ="answer0">${questionsAll[0].choices[3]}</button>
 	`;
+
+	document.querySelectorAll('.answer0').forEach(item => {
+	item.addEventListener('click', event => {})
+	})
+	if (".answer0" === 'C: 17,000km') {
+		console.log ("Yes!!!! You're off to a great start");
+	} else {
+		console.log("Shame! That wasn't it. The answer was C: 17,000km.");
+	}  
 }
+
+questionnaire1 ()
+
+/*
 //call right answer function	
 
-choices.addEventListener('click', answer)
+//document.getElementById('answer1')choices.addEventListener('click', answer)
 function answer() {
 if (questionsAll.choices[2] === true) {
 		console.log ("Yes!!!! You're off to a great start");
@@ -68,7 +80,7 @@ if (questionsAll.choices[2] === true) {
 
 
 
-/*
+
 //Right Answer Function
 //if click event on 'right answer' else if click on wrong answer Imight need to be a seperate function, deduct timers
 
@@ -121,24 +133,14 @@ function questionnaire4() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 //  TIMER FOR THE GAME STARTS AT 2 MINUTES 
 var el = document.getElementById("timer"),
-	mins = 2,
+	mins = 2;
 	secs = 0;
 
 function countDown() {
 	if (secs || mins) {
-		setTimeout(countDown, 1000); // Should be 1000, but I'm impatient
+		setTimeout(countDown, 1000);
 	}
 
 	el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); 

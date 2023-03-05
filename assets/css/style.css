@@ -92,7 +92,7 @@
   }
 
   button{
-  justify-content: center;
+    justify-content: center;
     background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,96,33,0.9542191876750701) 100%);
     border-radius: 8px;
     color: #13293d;
@@ -162,8 +162,7 @@
   
     .reset-button {
       font-size: 12px;
-      width: 20ox;
-      
+      width: 20px;
     }
   
     .timer {
