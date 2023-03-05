@@ -119,7 +119,8 @@ startGameEl.addEventListener('click', startGame)
 
 nextQuestionEl.addEventListener('click', function() {
   	answerContentEl.textContent= ""
-	questionIndex =++ 
+	questionIndex +=
+console.log(questionIndex)
 	questionnaire()
 });
 
