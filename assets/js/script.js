@@ -7,7 +7,7 @@ var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
 var answerContentEl = document.getElementById('answerContent');
-var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
+var rightAnswerContentEl = document.getElementById('rightAnswerContent');
 var startGameEl = document.getElementById('startGame');
 var nextQuestionEl = document.getElementById('nextQuestion');
 var questionsAll =
@@ -52,11 +52,14 @@ function startGame() {
 }
 
 function checkAnswer () {
-if (this.textContent == questionsAll[questionIndex].answer){
- console.log("ans is right");
-rightAnswerContentEl.textContent = "This just got added";
-}
-win++
+	if (this.textContent == questionsAll[questionIndex].answer){
+		console.log("ans is right");
+		answerContentEl.textContent = "Yes! You got it right! Well done!";
+		win++
+	} 
+	else {
+		answerContentEl.textContent = "Shame! That was wrong! Better luck next time";
+	}
 /* need to fix line below
 if(questionIndex !=0)
 questionnaire();
