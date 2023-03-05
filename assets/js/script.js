@@ -116,10 +116,12 @@ function nextQuestion(){
 	}
 
 startGameEl.addEventListener('click', startGame)
-nextQuestionEl.addEventListener('click', questionnaire)
-for (let i = 0; i < questionIndex.length; i++) {
-  
-}
+
+nextQuestionEl.addEventListener('click', function() {
+  	answerContentEl.textContent= ""
+	questionIndex =++ 
+	questionnaire()
+});
 
 
 
