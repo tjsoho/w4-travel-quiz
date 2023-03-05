@@ -4,6 +4,7 @@ var win = 0
 var loss = 0
 var secondsLeft = 60
 var winCountEl = document.getElementById("winCount")
+var lossCountEl = document.getElementById("lossCount")
 var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
@@ -45,42 +46,28 @@ var questionsAll =
 
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
 
-
-
 function startGame() {
-	console.log("We started the game")
 	questionnaire()
 	winCountEl.textContent = 0
+	lossCountEl.textContent = 0
+	clearInterval(countDown)
 }
 
 function checkAnswer () {
 	if (this.textContent == questionsAll[questionIndex].answer){
-		console.log("ans is right");
 		answerContentEl.textContent = "Yes! You got it right! Well done!";
-		//winCountEl.textContent = 0++
+		win++;
+		winCountEl.textContent = win;
 	} 
 	else {
 		answerContentEl.textContent = "Shame! That was wrong! Better luck next time";
+		loss++;
+		lossCountEl.textContent = loss;
+		secondsLeft -=5
+		sendMessage
 	}
-/* need to fix line below
-if(questionIndex !=0)
-questionnaire();
-}
-else{
-  console.log("wrong ans");
-loss++
-if(secondsLeft < 5){
-clearInterval(countDown)
-//stop quiz
-}
-timeleft -5
-questionnaire()
 
 }
-*/
-}
-
-
 
 function questionnaire() {
 	if (questionIndex == 0) {
@@ -108,11 +95,12 @@ function countDown() {
     secondsLeft--;
     timerEl.textContent = secondsLeft + " seconds left till end of game.";
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
       sendMessage();
+		return;
     }
 
   }, 1000);
@@ -120,11 +108,35 @@ function countDown() {
 
 function sendMessage() {
   timerMessageEl.textContent = "You were too slow! Your Plane crashed! ";
+	
 }
 
+function nextQuestion(){
+	
+	}
+
 startGameEl.addEventListener('click', startGame)
+nextQuestionEl.addEventListener('click', questionnaire)
+for (let i = 0; i < questionIndex.length; i++) {
+  
+}
 
 
+
+
+/* need to fix line below
+if(questionIndex !=0)
+questionnaire();
+}
+else{
+  console.log("wrong ans");
+loss++
+if(secondsLeft < 5){
+clearInterval(countDown)
+//stop quiz
+}
+timeleft -5
+questionnaire()
 
 
 
