@@ -3,11 +3,12 @@ var answerContentEl = document.getElementById('answerContent');
 var rightAnswerContentEl = document.getElementById('rightAnswerContentEl');
 var startGameEl = document.getElementById('startGame');
 var nextQuestionEl = document.getElementById('nextQuestion');
+var choices = document.getElementsByName('choices')
 var questionnaireArray = [
 	questionnaire1,
-	questionnaire2,
-	questionnaire3,
-	questionnaire4
+	//questionnaire2,
+	//questionnaire3,
+	//questionnaire4,
 	];
 var questionsAll =
 	[
@@ -49,19 +50,29 @@ function questionnaire1() {
 	<button>${questionsAll[0].choices[2]}</button>	
 	<button>${questionsAll[0].choices[3]}</button>
 	`;
+}
 //call right answer function	
 
+choices.addEventListener('click', answer)
+function answer() {
 if (questionsAll.choices[2] === true) {
 		console.log ("Yes!!!! You're off to a great start");
 	} else {
 		console.log("Shame! That wasn't it. The answer was C: 17,000km.");
 	} 
-
+	answer()
 }
+
+
+
+
+
+
+/*
 //Right Answer Function
 //if click event on 'right answer' else if click on wrong answer Imight need to be a seperate function, deduct timers
 
-/*
+
 pseudo code for answers for question1: anser is [2]
 if 
 	button is clicked on choices array [2], 
@@ -72,7 +83,7 @@ else
 
 
 
-*/
+
 
 // NEXT QUESTION - Event listener to click next question that calls the following function to continue playing the game
 
