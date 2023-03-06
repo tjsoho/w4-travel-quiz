@@ -48,9 +48,10 @@ var questionsAll =
 
 function startGame() {
 	questionnaire()
-	winCountEl.textContent = 0
-	lossCountEl.textContent = 0
-	clearInterval(countDown)
+	winCountEl.textContent = 0;
+	lossCountEl.textContent = 0;
+	secondsLeft = 60;
+	//clearInterval(countDown)
 }
 
 function checkAnswer () {
@@ -64,14 +65,13 @@ function checkAnswer () {
 		loss++;
 		lossCountEl.textContent = loss;
 		secondsLeft -=5
-		sendMessage
+		sendMessage();
 	}
 
 }
 
 function questionnaire() {
 	if (questionIndex == 0) {
-		countDown();
 		score = 0
 	}
 
@@ -93,6 +93,7 @@ function countDown() {
   // Sets interval in variable
   var timerInterval = setInterval(function() {
     secondsLeft--;
+console.log(secondsLeft)
     timerEl.textContent = secondsLeft + " seconds left till end of game.";
 
     if(secondsLeft <= 0) {
@@ -115,31 +116,20 @@ function nextQuestion(){
 	
 	}
 
-startGameEl.addEventListener('click', startGame)
+startGameEl.addEventListener('click', function() {
+	startGame();
+	countDown();
+})
 
 nextQuestionEl.addEventListener('click', function() {
   	answerContentEl.textContent= ""
-	questionIndex +=
+	questionIndex ++
 console.log(questionIndex)
 	questionnaire()
 });
 
 
 
-
-/* need to fix line below
-if(questionIndex !=0)
-questionnaire();
-}
-else{
-  console.log("wrong ans");
-loss++
-if(secondsLeft < 5){
-clearInterval(countDown)
-//stop quiz
-}
-timeleft -5
-questionnaire()
 
 
 
