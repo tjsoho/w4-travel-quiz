@@ -8,6 +8,7 @@ var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
 var lossCountEl = document.getElementById("lossCount")
 var storeDetailsEl = document.getElementById("storeDetails")
+var initials = localStorage.getItem("Store Details")
 var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
@@ -18,7 +19,7 @@ var nextQuestionEl = document.getElementById('nextQuestion');
 var questionsAll =
 	[
 		{
-			question: "If you were to fly in a straight line, how many               kilometers are between Sydney and London?",
+			question: "If you were to fly in a straight line, how many kilometers are between Sydney and London?",
 			choices: ["A: 22,000km", "B: 8,000km", "C: 17,000km", "D: 30,000km",],
 			answer: "C: 17,000km"
 		},
@@ -68,25 +69,32 @@ function checkAnswer() {
 		sendMessage();
 	}
 
+
 	if (questionIndex === questionsAll.length - 1) {
 		nextQuestionEl.textContent = "FINISH";
-		questionIndex = 0;
-		return;
-	}
-	if (nextQuestionEl.textContent === 'FINISH') {
-		const h1 = 'Type Your Initials to Store Your Score';
-		const initials = '';
-		const score = (win - loss);
-		storeDetailsEl.innerHTML = `
-			<div>
-			<h1>${h1}</h1>
-			<input>${initials}</input>
-			<input>${score}</input>
-			</div>
-		`;
-		console.log("div created")
+		nextQuestionEl.addEventListener("click", () => {
+			secondsLeft = secondsLeft;
+			const h1 = "Type Your Initials to Store Your Score";
+			const initials = "";
+			const score = ((win - loss) + "/5");
+			const submit = "SUBMIT";
+
+			storeDetailsEl.innerHTML = `
+            <div>
+            <h1>${h1}</h1>
+            <input>${initials}</input>
+            <input>${score}</input>
+            <button>${submit}</button>
+            </div>
+        `;
+			const submitEl = submit
+			submitEl.addEventListener('click', function (){
+				localStorage.setItem("Store Details", initialsInput.value);
+			})
+		});
 	}
 }
+
 
 function questionnaire() {
 	if (questionIndex == 0) {
