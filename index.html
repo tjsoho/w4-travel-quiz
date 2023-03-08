@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Frequent Flyer Travel Game</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-  </head>
-  <body>
-    <header>
-      <div> <h1>Frequent Flyers Travel Game</h1></div>
-        <p> Answer the questions below to find out if you're an economy, premium economy, business class, or first class traveller.</p>
-      <button onclick="startGame()" class="start-button" id="startGame">Start
-      </button>
-    </header>
 
-    <main>
-      <section>
-        <div> <h3>The Game</h3> </div>
-          <div class="question-container">
-            <div>
-            <div class="questions" id="questionContent"> </div>
+<head>
+  <title>Frequent Flyer Travel Game</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
 
-            <div class="answers" id="answerContent"></div>
-            </div>
-            <div> <button onclick="nextQuestion()" class="button2" id="nextQuestion">Next</button></div>
-          </div>
-      </section>
+<body>
+  <header>
+    <div>
+      <h1>Frequent Flyers Travel Game</h1>
+    </div>
+    <p> Answer the questions below to find out if you're an economy, premium economy, business class, or first class
+      traveller.</p>
+    <button onclick="startGame()" class="start-button" id="startGame">Start
+    </button>
+  </header>
 
+  <main>
+    <section>
+      <div>
+        <h3>The Game</h3>
+      </div>
+      <div class="question-container">
+        <div>
+          <div class="questions" id="questionContent"> </div>
 
-      <section>
-          <div class="score"> 
-            <h3>The Score</h3>
-          <div class="scoreboard" id="scoreboard">
-            <h2>Wins: <span class="win" id="winCount"></span> </h2>
-            <h2>Losses: <span class="loss" id="lossCount"></span></h2>
-          </div>
-          <div class="time-container">
-            <div class="timer" id="timerMessage"> </div>
-          </div>
-
+          <div class="answers" id="answerContent"></div>
         </div>
-      </section>
+        <div class="button2"> <button onclick="nextQuestion()" id="nextQuestion">Next</button></div>
+      </div>
+    </section>
 
-    </main>
-    <script src="./assets/js/script.js"></script>
-  </body>
+
+    <section>
+      <div class="score">
+        <h3>The Score</h3>
+        <div class="scoreboard" id="scoreboard">
+          <h2>Wins: <span class="win" id="winCount"></span> </h2>
+          <h2>Losses: <span class="loss" id="lossCount"></span></h2>
+        </div>
+        <div class="time-container">
+          <div class="timer" id="timerMessage"> </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>

@@ -3,6 +3,8 @@ var questionIndex = 0
 var win = 0
 var loss = 0
 var secondsLeft = 60
+var winCount = localStorage.getItem("Win Count")
+var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
 var lossCountEl = document.getElementById("lossCount")
 var timerEl = document.querySelector(".timer")
@@ -47,6 +49,7 @@ var questionsAll =
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
 
 function startGame() {
+	console.log('starting')
 	questionnaire()
 	winCountEl.textContent = 0;
 	lossCountEl.textContent = 0;
@@ -54,18 +57,26 @@ function startGame() {
 	//clearInterval(countDown)
 }
 
-function checkAnswer () {
-	if (this.textContent == questionsAll[questionIndex].answer){
+function checkAnswer() {
+	if (this.textContent == questionsAll[questionIndex].answer) {
 		answerContentEl.textContent = "Yes! You got it right! Well done!";
 		win++;
 		winCountEl.textContent = win;
-	} 
+		localStorage.setItem("Win Count", win);
+	}
 	else {
 		answerContentEl.textContent = "Shame! That was wrong! Better luck next time";
 		loss++;
 		lossCountEl.textContent = loss;
-		secondsLeft -=5
+		localStorage.setItem("Loss Count", loss);
+		secondsLeft -= 5
 		sendMessage();
+	}
+
+	if (questionIndex === questionsAll.length - 1) {
+		nextQuestionEl.textContent = "FINISH";
+		questionIndex = 0;
+		return;
 	}
 
 }
@@ -90,41 +101,41 @@ function questionnaire() {
 
 //  TIMER FOR THE GAME STARTS AT 2 MINUTES 
 function countDown() {
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-console.log(secondsLeft)
-    timerEl.textContent = secondsLeft + " seconds left till end of game.";
+	// Sets interval in variable
+	var timerInterval = setInterval(function () {
+		secondsLeft--;
+		console.log(secondsLeft)
+		timerEl.textContent = secondsLeft + " seconds left till end of game.";
 
-    if(secondsLeft <= 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      // Calls function to create and append image
-      sendMessage();
-		return;
-    }
+		if (secondsLeft <= 0) {
+			// Stops execution of action at set interval
+			clearInterval(timerInterval);
+			// Calls function to create and append image
+			sendMessage();
+			return;
+		}
 
-  }, 1000);
+	}, 1000);
 }
 
 function sendMessage() {
-  timerMessageEl.textContent = "You were too slow! Your Plane crashed! ";
-	
+	timerMessageEl.textContent = "You were too slow! Your Plane crashed! ";
+
 }
 
-function nextQuestion(){
-	
-	}
+function nextQuestion() {
 
-startGameEl.addEventListener('click', function() {
+}
+
+startGameEl.addEventListener('click', function () {
 	startGame();
 	countDown();
 })
 
-nextQuestionEl.addEventListener('click', function() {
-  	answerContentEl.textContent= ""
-	questionIndex ++
-console.log(questionIndex)
+nextQuestionEl.addEventListener('click', function () {
+	answerContentEl.textContent = ""
+	questionIndex++
+	console.log(questionIndex)
 	questionnaire()
 });
 
