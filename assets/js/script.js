@@ -76,19 +76,19 @@ function checkAnswer() {
 			secondsLeft = secondsLeft;
 			const h1 = "Type Your Initials to Store Your Score";
 			const initials = "";
-			const score = ((win - loss) + "/5");
+			const score = ("You Scored " + (win - loss) + "/5");
 			const submit = "SUBMIT";
 
 			storeDetailsEl.innerHTML = `
             <div>
             <h1>${h1}</h1>
             <input>${initials}</input>
-            <input>${score}</input>
+            <h3>${score}</h3>
             <button>${submit}</button>
             </div>
         `;
 			const submitEl = submit
-			submitEl.addEventListener('click', function (){
+			submitEl.addEventListener('click', function () {
 				localStorage.setItem("Store Details", initialsInput.value);
 			})
 		});
@@ -101,7 +101,7 @@ function questionnaire() {
 		score = 0
 	}
 
-	questionContentEl.innerHTML = `<div>${questionsAll[questionIndex].question}</div>
+	questionContentEl.innerHTML = `<div class ="questionAll">${questionsAll[questionIndex].question}</div>
 	<button class ="answer0">${questionsAll[questionIndex].choices[0]}</button>
 	<button class ="answer0">${questionsAll[questionIndex].choices[1]}</button>
 	<button class ="answer0">${questionsAll[questionIndex].choices[2]}</button>	
