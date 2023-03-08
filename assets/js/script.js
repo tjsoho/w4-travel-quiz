@@ -7,6 +7,7 @@ var winCount = localStorage.getItem("Win Count")
 var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
 var lossCountEl = document.getElementById("lossCount")
+var storeDetailsEl = document.getElementById("storeDetails")
 var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
@@ -41,11 +42,6 @@ var questionsAll =
 		}
 	]
 
-
-
-
-
-
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
 
 function startGame() {
@@ -54,7 +50,6 @@ function startGame() {
 	winCountEl.textContent = 0;
 	lossCountEl.textContent = 0;
 	secondsLeft = 60;
-	//clearInterval(countDown)
 }
 
 function checkAnswer() {
@@ -78,7 +73,19 @@ function checkAnswer() {
 		questionIndex = 0;
 		return;
 	}
-
+	if (nextQuestionEl.textContent === 'FINISH') {
+		const h1 = 'Type Your Initials to Store Your Score';
+		const initials = '';
+		const score = (win - loss);
+		storeDetailsEl.innerHTML = `
+			<div>
+			<h1>${h1}</h1>
+			<input>${initials}</input>
+			<input>${score}</input>
+			</div>
+		`;
+		console.log("div created")
+	}
 }
 
 function questionnaire() {
@@ -96,7 +103,6 @@ function questionnaire() {
 	document.querySelectorAll('.answer0').forEach(item => {
 		item.addEventListener('click', checkAnswer)
 	})
-
 }
 
 //  TIMER FOR THE GAME STARTS AT 2 MINUTES 
@@ -114,17 +120,14 @@ function countDown() {
 			sendMessage();
 			return;
 		}
-
 	}, 1000);
 }
 
 function sendMessage() {
 	timerMessageEl.textContent = "You were too slow! Your Plane crashed! ";
-
 }
 
 function nextQuestion() {
-
 }
 
 startGameEl.addEventListener('click', function () {
