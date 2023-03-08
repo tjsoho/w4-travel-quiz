@@ -104,7 +104,19 @@ button {
   transition-duration: 0.15s;
   transition-property: background-color #879274;
   transition-timing-function: linear;
-  padding: 5%;
+
+}
+
+#storeDetails{
+  visibility: hidden;
+  }
+
+#submitBtn {
+  margin: 15% 0% 5% 0%;
+}
+
+#inputDetails {
+  margin: 5% 0% 5% 0%;
 }
 
 .questionAll {

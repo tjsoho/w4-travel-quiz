@@ -7,8 +7,9 @@ var winCount = localStorage.getItem("Win Count")
 var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
 var lossCountEl = document.getElementById("lossCount")
-var storeDetailsEl = document.getElementById("storeDetails")
-var initials = localStorage.getItem("Store Details")
+var finalScoreEl = document.getElementById("finalScore")
+var input = document.getElementById("inputDetails")
+var submit = document.getElementById("submitBtn")
 var timerEl = document.querySelector(".timer")
 var timerMessageEl = document.getElementById('timerMessage')
 var questionContentEl = document.getElementById('questionContent');
@@ -71,27 +72,8 @@ function checkAnswer() {
 
 
 	if (questionIndex === questionsAll.length - 1) {
-		nextQuestionEl.textContent = "FINISH";
-		nextQuestionEl.addEventListener("click", () => {
-			secondsLeft = secondsLeft;
-			const h1 = "Type Your Initials to Store Your Score";
-			const initials = "";
-			const score = ("You Scored " + (win - loss) + "/5");
-			const submit = "SUBMIT";
-
-			storeDetailsEl.innerHTML = `
-            <div>
-            <h1>${h1}</h1>
-            <input>${initials}</input>
-            <h3>${score}</h3>
-            <button>${submit}</button>
-            </div>
-        `;
-			const submitEl = submit
-			submitEl.addEventListener('click', function () {
-				localStorage.setItem("Store Details", initialsInput.value);
-			})
-		});
+		document.getElementById("next-finsih").style.visibility = "hidden";
+		document.getElementById("storeDetails").style.visibility = "visible";
 	}
 }
 
@@ -136,6 +118,12 @@ function sendMessage() {
 }
 
 function nextQuestion() {
+}
+
+function score() {
+	finalScoreEl.textContent = function () {
+		var score = ("You scored " + (win - loss) + " /4")
+	}
 }
 
 startGameEl.addEventListener('click', function () {
