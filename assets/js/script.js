@@ -3,7 +3,7 @@ var questionIndex = 0
 var win = 0
 var loss = 0
 var secondsLeft = 60
-var score = (win - loss)
+var score = ""
 var winCount = localStorage.getItem("Win Count")
 var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
@@ -71,7 +71,6 @@ function checkAnswer() {
 		sendMessage();
 	}
 
-
 	if (questionIndex === questionsAll.length - 1) {
 		document.getElementById("next-finsih").style.visibility = "hidden";
 		document.getElementById("storeDetails").style.visibility = "visible";
@@ -111,6 +110,12 @@ function countDown() {
 			sendMessage();
 			return;
 		}
+
+		if (questionIndex === questionsAll.length - 1) {
+			clearInterval(timerInterval);
+			console.log("Timer stopped!");
+			return;
+		}
 	}, 1000);
 }
 
@@ -119,12 +124,6 @@ function sendMessage() {
 }
 
 function nextQuestion() {
-}
-
-function score() {
-	finalScoreEl.textContent = function () {
-		"You scored " + score + " /4"
-	}
 }
 
 startGameEl.addEventListener('click', function () {
@@ -139,12 +138,17 @@ nextQuestionEl.addEventListener('click', function () {
 	questionnaire()
 });
 
+function scoreTotal() {
+	var tally = win - loss;
+	console.log(tally);
+	return tally;
+}
+
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
-
+	localStorage.setItem("Initials", input);
+	finalScoreEl.textContent = scoreTotal
 })
-
-
 
 
 
