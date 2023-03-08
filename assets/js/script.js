@@ -3,6 +3,7 @@ var questionIndex = 0
 var win = 0
 var loss = 0
 var secondsLeft = 60
+var score = (win - loss)
 var winCount = localStorage.getItem("Win Count")
 var lossCount = localStorage.getItem("Loss Count")
 var winCountEl = document.getElementById("winCount")
@@ -122,7 +123,7 @@ function nextQuestion() {
 
 function score() {
 	finalScoreEl.textContent = function () {
-		var score = ("You scored " + (win - loss) + " /4")
+		"You scored " + score + " /4"
 	}
 }
 
@@ -137,6 +138,11 @@ nextQuestionEl.addEventListener('click', function () {
 	console.log(questionIndex)
 	questionnaire()
 });
+
+submit.addEventListener('click', function () {
+	const val = document.querySelector('input').value;
+
+})
 
 
 
