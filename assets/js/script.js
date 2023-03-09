@@ -55,6 +55,8 @@ function startGame() {
 	secondsLeft = 60;
 }
 
+// This function checks the answer the input chose vs the correct answer to generate a right or wrong response.
+// Onece the last question has been answered, an input box and a confirm button are revealed.
 function checkAnswer() {
 	if (this.textContent == questionsAll[questionIndex].answer) {
 		answerContentEl.textContent = "✅ Yes! You got it right! Well done! ✅";
@@ -77,7 +79,7 @@ function checkAnswer() {
 	}
 }
 
-
+// This function runs the loop of sending the 4 different questions and their optional answers to the HTML element for the user to choose.
 function questionnaire() {
 	if (questionIndex == 0) {
 		score = 0
@@ -119,6 +121,7 @@ function countDown() {
 	}, 1000);
 }
 
+// Message sent out if the itme runs out.
 function sendMessage() {
 	timerMessageEl.textContent = "You were too slow! Your Plane crashed! ";
 }
@@ -126,11 +129,13 @@ function sendMessage() {
 function nextQuestion() {
 }
 
+// Event listener to start the game
 startGameEl.addEventListener('click', function () {
 	startGame();
 	countDown();
 })
 
+// This function loads the next question when the user clicks next
 nextQuestionEl.addEventListener('click', function () {
 	answerContentEl.textContent = ""
 	questionIndex++
@@ -138,12 +143,14 @@ nextQuestionEl.addEventListener('click', function () {
 	questionnaire()
 });
 
+// This function tallys the final score
 function scoreTotal() {
 	var tally = win - loss;
 	console.log(tally);
 	return tally;
 }
 
+// This function logs the users initials to local storage and shows the user what their final score is
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
 	localStorage.setItem("Initials", input.value);
