@@ -57,13 +57,13 @@ function startGame() {
 
 function checkAnswer() {
 	if (this.textContent == questionsAll[questionIndex].answer) {
-		answerContentEl.textContent = "Yes! You got it right! Well done!";
+		answerContentEl.textContent = "✅ Yes! You got it right! Well done! ✅";
 		win++;
 		winCountEl.textContent = win;
 		localStorage.setItem("Win Count", win);
 	}
 	else {
-		answerContentEl.textContent = "Shame! That was wrong! Better luck next time";
+		answerContentEl.textContent = "❌ Shame! That was wrong! Better luck next time ❌";
 		loss++;
 		lossCountEl.textContent = loss;
 		localStorage.setItem("Loss Count", loss);
@@ -146,8 +146,8 @@ function scoreTotal() {
 
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
-	localStorage.setItem("Initials", input);
-	finalScoreEl.textContent = scoreTotal
+	localStorage.setItem("Initials", input.value);
+	finalScoreEl.textContent = ("text" + scoreTotal());
 })
 
 
