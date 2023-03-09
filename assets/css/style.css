@@ -12,13 +12,6 @@ body {
   background: linear-gradient(0deg, #AAE3E2 0%, #FDEBED 63%);
 }
 
-.reset-button {
-  font-size: 16px;
-  height: 30px;
-  line-height: 8px;
-  margin-top: 20px;
-}
-
 .start-button {
   background: radial-gradient(circle, #B9F3FC 0%, #00425A 100%);
   border-radius: 8px;
@@ -68,23 +61,6 @@ section {
   text-align: center;
 }
 
-.button2 {
-  justify-content: center;
-  background: radial-gradient(circle, white 0%, #FFAACF 100%);
-  border-radius: 8px;
-  color: #13293d;
-  cursor: pointer;
-  font-size: medium;
-  letter-spacing: 0.21px;
-  line-height: 16px;
-  max-width: 150px;
-  text-align: center;
-  transition-duration: 0.15s;
-  transition-property: background-color;
-  transition-timing-function: linear;
-  margin-top: 0.6em;
-}
-
 .questions {
   width: 40vw;
   height: 200px;
@@ -104,12 +80,28 @@ button {
   transition-duration: 0.15s;
   transition-property: background-color #879274;
   transition-timing-function: linear;
-
 }
 
-#storeDetails{
+.button2 {
+  justify-content: center;
+  background: radial-gradient(circle, white 0%, #FFAACF 100%);
+  border-radius: 8px;
+  margin-top: 20%;
+  color: #13293d;
+  cursor: pointer;
+  font-size: medium;
+  letter-spacing: 0.21px;
+  line-height: 30px;
+  width: 400px;
+  text-align: center;
+  transition-duration: 0.15s;
+  transition-property: background-color;
+  transition-timing-function: linear;
+}
+
+#storeDetails {
   visibility: hidden;
-  }
+}
 
 #submitBtn {
   margin: 15% 0% 5% 0%;

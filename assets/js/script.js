@@ -34,8 +34,8 @@ var questionsAll =
 
 		{
 			question: "Which is the busiest airport by passenger traffic",
-			choices: ["Charles de Gualle (Paris)", "Heathrow (London)", "LAX (Las Angeles)", "Hartsfield-Jackson (Atlanta)",],
-			answer: "Hartsfield-Jackson (Atlanta)"
+			choices: ["Charles de Gualle (Paris)", "Heathrow (London)", "LAX (Las Angeles)", "Jackson (Atlanta)",],
+			answer: "Jackson (Atlanta)"
 		},
 
 		{
@@ -101,7 +101,7 @@ function countDown() {
 	var timerInterval = setInterval(function () {
 		secondsLeft--;
 		console.log(secondsLeft)
-		timerEl.textContent = secondsLeft + " seconds left till end of game.";
+		timerEl.textContent = secondsLeft + " seconds until end of game.";
 
 		if (secondsLeft <= 0) {
 			// Stops execution of action at set interval
@@ -147,7 +147,7 @@ function scoreTotal() {
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
 	localStorage.setItem("Initials", input.value);
-	finalScoreEl.textContent = ("text" + scoreTotal());
+	finalScoreEl.textContent = "You scored " + scoreTotal() + "/4";
 })
 
 
