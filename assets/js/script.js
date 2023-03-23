@@ -77,6 +77,11 @@ function checkAnswer() {
 		document.getElementById("next-finsih").style.visibility = "hidden";
 		document.getElementById("storeDetails").style.visibility = "visible";
 	}
+
+
+
+
+
 }
 
 // This function runs the loop of sending the 4 different questions and their optional answers to the HTML element for the user to choose.
@@ -92,6 +97,19 @@ function questionnaire() {
 	<button class ="answer0">${questionsAll[questionIndex].choices[3]}</button>
 	`;
 
+	// This function is to disable the buttons once the user has chosen an answer. If the next question button is clicked, the buttons are re-enabled.
+	function disableButtons() {
+		document.querySelectorAll('.answer0').forEach(item => {
+			item.disabled = true;
+			if (questionIndex < questionsAll.length - 1) {
+				item.disabled = false;
+			}
+		})
+	}
+
+	disableButtons();
+
+	// This function is to check the answer the user has chosen.
 	document.querySelectorAll('.answer0').forEach(item => {
 		item.addEventListener('click', checkAnswer)
 	})
@@ -155,6 +173,15 @@ submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
 	localStorage.setItem("Initials", input.value);
 	finalScoreEl.textContent = "You scored " + scoreTotal() + "/4";
+
+	//save score to a high score scoreboard in local storage
+	var highScore = localStorage.getItem("High Score");
+	if (highScore === null) {
+		highScore = 0;
+	}
+	if (scoreTotal() > highScore) {
+		localStorage.setItem("High Score", scoreTotal());
+	}
 })
 
 
