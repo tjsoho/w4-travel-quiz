@@ -55,6 +55,16 @@ function startGame() {
 	secondsLeft = 60;
 }
 
+// This function disables the buttons once the user has answered the question.
+function disableButtons() {
+	document.querySelectorAll('.answer0').forEach(item => {
+		item.disabled = true;
+		if (questionIndex < questionsAll.length - 1) {
+			item.disabled = false;
+		}
+	});
+}
+
 // This function checks the answer the input chose vs the correct answer to generate a right or wrong response.
 // Onece the last question has been answered, an input box and a confirm button are revealed.
 function checkAnswer() {
@@ -78,10 +88,6 @@ function checkAnswer() {
 		document.getElementById("storeDetails").style.visibility = "visible";
 	}
 
-
-
-
-
 }
 
 // This function runs the loop of sending the 4 different questions and their optional answers to the HTML element for the user to choose.
@@ -96,18 +102,6 @@ function questionnaire() {
 	<button class ="answer0">${questionsAll[questionIndex].choices[2]}</button>	
 	<button class ="answer0">${questionsAll[questionIndex].choices[3]}</button>
 	`;
-
-	// This function is to disable the buttons once the user has chosen an answer. If the next question button is clicked, the buttons are re-enabled.
-	function disableButtons() {
-		document.querySelectorAll('.answer0').forEach(item => {
-			item.disabled = true;
-			if (questionIndex < questionsAll.length - 1) {
-				item.disabled = false;
-			}
-		})
-	}
-
-	disableButtons();
 
 	// This function is to check the answer the user has chosen.
 	document.querySelectorAll('.answer0').forEach(item => {
@@ -159,6 +153,7 @@ nextQuestionEl.addEventListener('click', function () {
 	questionIndex++
 	console.log(questionIndex)
 	questionnaire()
+	disableButtons()
 });
 
 // This function tallys the final score
