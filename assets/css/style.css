@@ -132,6 +132,15 @@ button {
   box-shadow: 0px 0px 10px grey
 }
 
+.answers{
+  border: solid rgb(225, 204, 204);
+  height: 40px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #FDEBED;
+}
+
 h3 {
   text-align: center;
   width: 100%;

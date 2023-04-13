@@ -153,7 +153,7 @@ nextQuestionEl.addEventListener('click', function () {
 	questionIndex++
 	console.log(questionIndex)
 	questionnaire()
-	disableButtons()
+
 });
 
 // This function tallys the final score

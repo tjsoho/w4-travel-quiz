@@ -20,38 +20,43 @@
   </header>
 
   <main>
-    <section>
-      <div>
-        <h3>The Game</h3>
-      </div>
-      <div class="question-container">
+
+<!-- Entire left square section containing -->
+  <!-- Questions and multiple choice container -->
+      <section>
         <div>
-          <div class="questions" id="questionContent"> </div>
-
-          <div class="answers" id="answerContent"></div>
+          <h3>The Game</h3>
         </div>
+        <div class="question-container">
+          <div>
+            <div class="questions" id="questionContent"> </div>
+          </div>
 
-        <div id="next-finsih"> <button class="button2" onclick="nextQuestion  ()" id="nextQuestion">Next</button>
+          <div id="next-finsih"> <button class="button2" onclick="nextQuestion  ()" id="nextQuestion">Next</button>
+          </div>
+
+  <!-- Container to submit initalis and retrieve score at the end of the game -->
+          <div id="storeDetails">
+            <h3>Type Your Initials to Find Out Your Score and Save it. </h3>
+            <h3 id="finalScore"></h3>
+            <input type="text" id="inputDetails"></input>
+            <button id="submitBtn">CONFRIM</button>
+          </div>
         </div>
+      </section>
 
-        <div id="storeDetails">
-          <h3>Type Your Initials to Find Out Your Score and Save it. </h3>
-          <h3 id="finalScore"></h3>
-          <input type="text" id="inputDetails"></input>
-          <button id="submitBtn">CONFRIM</button>
-        </div>
-
-      </div>
-    </section>
-
-
+<!-- Entire right square section containing score and countdown timer -->
+   <!-- Score -->
     <section>
       <div class="score">
         <h3>The Score</h3>
         <div class="scoreboard" id="scoreboard">
           <h2>Wins: <span class="win" id="winCount"></span> </h2>
           <h2>Losses: <span class="loss" id="lossCount"></span></h2>
+          <div class="answers" id="answerContent"></div>
         </div>
+        
+  <!-- Countdown Timer  -->
         <div class="time-container">
           <div class="timer" id="timerMessage"> </div>
         </div>
