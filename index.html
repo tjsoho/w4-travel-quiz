@@ -5,6 +5,8 @@
   <title>Frequent Flyer Travel Game</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -21,9 +23,28 @@
 
   <main>
 
-<!-- Entire left square section containing -->
-  <!-- Questions and multiple choice container -->
-      <section>
+    <!-- Entire left square section containing -->
+    <section>
+      <!-- divs to contain a grid of four images -->
+      <div class="container" id="image-container">
+        <div class="row g-2">
+          <div class="col-6">
+            <div class="p-3"><img class="flyer-img" src="./assets/images/economy.png" alt=""></div>
+          </div>
+          <div class="col-6">
+            <div class="p-3"><img class="flyer-img" src="./assets/images/p-economy.png" alt=""></div>
+          </div>
+          <div class="col-6">
+            <div class="p-3"><img class="flyer-img" src="./assets/images/business.png" alt=""></div>
+          </div>
+          <div class="col-6">
+            <div class="p-3"><img class="flyer-img" src="./assets/images/first.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Questions and multiple choice container -->
+      <div id="the-game">
         <div>
           <h3>The Game</h3>
         </div>
@@ -35,7 +56,7 @@
           <div id="next-finsih"> <button class="button2" onclick="nextQuestion  ()" id="nextQuestion">Next</button>
           </div>
 
-  <!-- Container to submit initalis and retrieve score at the end of the game -->
+          <!-- Container to submit initalis and retrieve score at the end of the game -->
           <div id="storeDetails">
             <h3>Type Your Initials to Find Out Your Score and Save it. </h3>
             <h3 id="finalScore"></h3>
@@ -43,10 +64,11 @@
             <button id="submitBtn">CONFRIM</button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-<!-- Entire right square section containing score and countdown timer -->
-   <!-- Score -->
+    <!-- Entire right square section containing score and countdown timer -->
+    <!-- Score -->
     <section>
       <div class="score">
         <h3>The Score</h3>
@@ -55,8 +77,8 @@
           <h2>Losses: <span class="loss" id="lossCount"></span></h2>
           <div class="answers" id="answerContent"></div>
         </div>
-        
-  <!-- Countdown Timer  -->
+
+        <!-- Countdown Timer  -->
         <div class="time-container">
           <div class="timer" id="timerMessage"> </div>
         </div>

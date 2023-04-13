@@ -53,6 +53,8 @@ function startGame() {
 	winCountEl.textContent = 0;
 	lossCountEl.textContent = 0;
 	secondsLeft = 90;
+	document.getElementById("image-container").style.display = "none";
+	document.getElementById("the-game").style.display = "block";
 }
 
 // This function disables the buttons once the user has answered the question.
