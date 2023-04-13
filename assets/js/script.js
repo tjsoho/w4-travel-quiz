@@ -52,7 +52,7 @@ function startGame() {
 	questionnaire()
 	winCountEl.textContent = 0;
 	lossCountEl.textContent = 0;
-	secondsLeft = 60;
+	secondsLeft = 90;
 }
 
 // This function disables the buttons once the user has answered the question.
@@ -64,19 +64,21 @@ function disableButtons() {
 		}
 	});
 }
+disableButtons()
 
 // This function checks the answer the input chose vs the correct answer to generate a right or wrong response.
 // Onece the last question has been answered, an input box and a confirm button are revealed.
 function checkAnswer() {
 	if (this.textContent == questionsAll[questionIndex].answer) {
 		answerContentEl.textContent = "✅ Yes! You got it right! Well done! ✅";
-		document.getElementById("answerContent").style.visibility = "vissible";
+		document.getElementById("answerContent").style.display = "block";
 		win++;
 		winCountEl.textContent = win;
 		localStorage.setItem("Win Count", win);
 	}
 	else {
 		answerContentEl.textContent = "❌ Shame! That was wrong! Better luck next time ❌";
+		document.getElementById("answerContent").style.display = "block";
 		loss++;
 		lossCountEl.textContent = loss;
 		localStorage.setItem("Loss Count", loss);
@@ -88,7 +90,6 @@ function checkAnswer() {
 		document.getElementById("next-finsih").style.visibility = "hidden";
 		document.getElementById("storeDetails").style.visibility = "visible";
 	}
-
 }
 
 // This function runs the loop of sending the 4 different questions and their optional answers to the HTML element for the user to choose.
@@ -152,9 +153,9 @@ startGameEl.addEventListener('click', function () {
 nextQuestionEl.addEventListener('click', function () {
 	answerContentEl.textContent = ""
 	questionIndex++
+	document.getElementById("answerContent").style.display = "none";
 	console.log(questionIndex)
 	questionnaire()
-
 });
 
 // This function tallys the final score
