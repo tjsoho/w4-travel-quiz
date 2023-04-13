@@ -70,6 +70,7 @@ function disableButtons() {
 function checkAnswer() {
 	if (this.textContent == questionsAll[questionIndex].answer) {
 		answerContentEl.textContent = "✅ Yes! You got it right! Well done! ✅";
+		document.getElementById("answerContent").style.visibility = "vissible";
 		win++;
 		winCountEl.textContent = win;
 		localStorage.setItem("Win Count", win);

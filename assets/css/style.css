@@ -139,6 +139,7 @@ button {
   padding: 8px;
   border-radius: 8px;
   background-color: #FDEBED;
+  visibility: hidden;
 }
 
 h2 {
@@ -156,6 +157,7 @@ h3 {
   align-items: baseline;
   justify-content: space-evenly;
   background-color: white;
+  padding: 10px;
 }
 
 .timer {
