@@ -58,7 +58,7 @@ function startGame() {
 // This function disables the buttons once the user has answered the question.
 function disableButtons() {
 	document.querySelectorAll('.answer0').forEach(item => {
-		item.disabled = true;
+		item.removeEventListener("click", checkAnswer)
 		if (questionIndex < questionsAll.length - 1) {
 			item.disabled = false;
 		}
@@ -69,6 +69,7 @@ disableButtons()
 // This function checks the answer the input chose vs the correct answer to generate a right or wrong response.
 // Onece the last question has been answered, an input box and a confirm button are revealed.
 function checkAnswer() {
+	disableButtons()
 	if (this.textContent == questionsAll[questionIndex].answer) {
 		answerContentEl.textContent = "✅ Yes! You got it right! Well done! ✅";
 		document.getElementById("answerContent").style.display = "block";
@@ -77,7 +78,7 @@ function checkAnswer() {
 		localStorage.setItem("Win Count", win);
 	}
 	else {
-		answerContentEl.textContent = "❌ Shame! That was wrong! Better luck next time ❌";
+		answerContentEl.textContent = `❌ Shame, That was wrong! The answer is ${questionsAll[questionIndex].answer}. Better luck next time`;
 		document.getElementById("answerContent").style.display = "block";
 		loss++;
 		lossCountEl.textContent = loss;
