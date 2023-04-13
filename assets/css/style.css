@@ -148,7 +148,7 @@ button {
 
 .answers{
   border: solid rgb(225, 204, 204);
-  max-height: 40px;
+  max-height: 70px;
   text-align: center;
   vertical-align: center;
   padding: 8px;

@@ -80,7 +80,7 @@ function checkAnswer() {
 		localStorage.setItem("Win Count", win);
 	}
 	else {
-		answerContentEl.textContent = `❌ Shame, That was wrong! The answer is ${questionsAll[questionIndex].answer}. Better luck next time`;
+		answerContentEl.textContent = `❌ WHOOPS!! The answer is ${questionsAll[questionIndex].answer}. Better luck next time! 😀`;
 		document.getElementById("answerContent").style.display = "block";
 		loss++;
 		lossCountEl.textContent = loss;
@@ -168,11 +168,20 @@ function scoreTotal() {
 	return tally;
 }
 
+//function to get the users win count
+function getWinCount() {
+	var winCount = localStorage.getItem("Win Count");
+	if (winCount === null) {
+		winCount = 0;
+	}
+	return winCount;
+}
+
 // This function logs the users initials to local storage and shows the user what their final score is
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
 	localStorage.setItem("Initials", input.value);
-	finalScoreEl.textContent = "You scored " + scoreTotal() + "/4";
+	finalScoreEl.textContent = "You scored " + getWinCount() + "/4";
 
 	//save score to a high score scoreboard in local storage
 	var highScore = localStorage.getItem("High Score");
