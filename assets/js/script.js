@@ -27,27 +27,30 @@ var questionsAll =
 		},
 
 		{
-			question: "How long is the world's shortest flight",
+			question: "How long is the world's shortest flight?",
 			choices: ["5 minutes", "1 minute", "3 minutes", "10 minutes",],
 			answer: "1 minute"
 		},
 
 		{
-			question: "Which is the busiest airport by passenger traffic",
+			question: "Which is the busiest airport by passenger traffic?",
 			choices: ["Charles de Gualle (Paris)", "Heathrow (London)", "LAX (Las Angeles)", "Jackson (Atlanta)",],
 			answer: "Jackson (Atlanta)"
 		},
 
 		{
-			question: "What is the most visited country in the world",
+			question: "What is the most visited country in the world?",
 			choices: ["France", "China", "Italy", "USA",],
 			answer: "France"
 		}
 	]
 
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
+// When user the questions start at 0 and the win and loss count is set to 0.
 
 function startGame() {
+
+	questionIndex = 0
 	console.log('starting')
 	questionnaire()
 	winCountEl.textContent = 0;
@@ -55,6 +58,7 @@ function startGame() {
 	secondsLeft = 90;
 	document.getElementById("image-container").style.display = "none";
 	document.getElementById("the-game").style.display = "block";
+	
 }
 
 // This function disables the buttons once the user has answered the question.
@@ -101,7 +105,7 @@ function questionnaire() {
 		score = 0
 	}
 
-	questionContentEl.innerHTML = `<div class ="questionAll row g-2">${questionsAll[questionIndex].question}</div>
+	questionContentEl.innerHTML = `<div class ="questionAll">${questionsAll[questionIndex].question}</div>
 	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[0]}</button>
 	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[1]}</button>
 	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[2]}</button>	
@@ -174,7 +178,16 @@ function getWinCount() {
 	if (winCount === null) {
 		winCount = 0;
 	}
+	if (winCount <= 1) {
+		document.getElementById('success1').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+	}
+	if (winCount == 2) {
+		document.getElementById('success2').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+	}
 	return winCount;
+
 }
 
 // This function logs the users initials to local storage and shows the user what their final score is

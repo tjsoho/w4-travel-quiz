@@ -3,19 +3,21 @@
 }
 
 body {
+  background-image: linear-gradient(to bottom, #ffffff, #c6a35c78), url(../images/etihad-silver.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: Arial;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background: linear-gradient(0deg, #AAE3E2 0%, #FDEBED 63%);
 }
 
 .start-button {
-  background:  #00425A;
+  background: #472F2B;
   border-radius: 8px;
-  color: white;
+  color: #C6A35C;
   cursor: pointer;
   font-size: 2em;
   letter-spacing: 0.21px;
@@ -54,6 +56,41 @@ section {
   box-shadow: 0px 0px 10px grey
 }
 
+/* success images that are hidden on the html until the final score */
+.sucess-Image{
+  width: 100%;
+  height: 100%;
+  border-radius: 80px;
+  padding: 12%;
+}
+
+#success1 {
+  display: none;
+}
+
+#success2 {
+  display: none;
+}
+
+#success3 {
+  display: none;
+}
+
+#success4 {
+  display: none;
+}
+
+#planecrash {
+  display: none;
+}
+
+/* background image */
+.background-1 {
+  background-image: url(../images/etihad-silver.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 #image-container {
   display: block;
   margin: 0 auto;
@@ -82,9 +119,9 @@ section {
 
 button {
   justify-content: center;
-  background: #FFAACF;
+  background: #472F2B;
   border-radius: 8px;
-  color: #13293d;
+  color: #C6A35C;
   cursor: pointer;
   font-size: medium;
   letter-spacing: 0.21px;
@@ -92,16 +129,15 @@ button {
   max-width: 150px;
   text-align: center;
   transition-duration: 0.15s;
-  transition-property: background-color #879274;
   transition-timing-function: linear;
 }
 
 .button2 {
   justify-content: center;
-  background: #FFAACF;
+  background: #472F2B;
   border-radius: 8px;
   margin-top: 50%;
-  color: #13293d;
+  color: #C6A35C;
   cursor: pointer;
   font-size: medium;
   letter-spacing: 0.21px;
@@ -134,7 +170,7 @@ button {
 }
 
 .answer0 {
-  background: #FFAACF;
+  background:#472F2B;
   margin: 5% 2% 2% 2%;
   padding: 2% 5% 2% 5%;
 }
@@ -151,13 +187,11 @@ button {
 }
 
 .answers {
-  border: solid rgb(225, 204, 204);
   max-height: 70px;
   text-align: center;
   vertical-align: center;
   padding: 8px;
   border-radius: 8px;
-  background-color: #FDEBED;
   display: none;
   margin-left: 15px;
   margin-right: 15px;
@@ -239,7 +273,8 @@ h3 {
   }
 
   .answer0 {
-    background: radial-gradient(circle, white 0%, #FFAACF 100%);
+    background: #472F2B;
+    color: #C6A35C;
     margin: 5% 2% 2% 2%;
     padding: 2% 5% 2% 5%;
     min-width: fit-content;
@@ -248,10 +283,10 @@ h3 {
 
   .button2 {
     justify-content: center;
-    background: radial-gradient(circle, white 0%, #FFAACF 100%);
+    background: #472F2B;
     border-radius: 8px;
     margin-top: 85%;
-    color: #13293d;
+    color: #C6A35C;
     cursor: pointer;
     font-size: medium;
     letter-spacing: 0.21px;
@@ -272,7 +307,6 @@ h3 {
     justify-content: space-evenly;
     color: black;
     text-align: center;
-    background-color: white;
     width: 100%;
     height: 200px;
     border: solid 1px white;
@@ -283,5 +317,4 @@ h3 {
     box-shadow: 0px 0px 10px grey;
     padding: 10px;
   }
-
 }

@@ -23,8 +23,39 @@
 
   <main>
 
-    <!-- Entire left square section containing -->
-    <section>
+    <!-- Entire left square section containing images, question and answer options -->
+    <section id="background-1">
+      <!-- Container for success images hidden until only one is revealed at the end-->
+      <div id="success1">
+        <img class="sucess-Image" src="./assets/images/economy.png" alt="">
+        <h4>You have Economy status</h4>
+        <p>Please wait for everyone else to board. Don't forget your neck pillow.</p>
+      </div>
+
+      <div id="success2">
+        <img class="sucess-Image" src="./assets/images/p-economy.png" alt="">
+        <h4>You have Premium-Economy status</h4>
+        <p>You can almost feel ritzy.</p>
+      </div>
+
+      <div id="success3">
+        <img class="sucess-Image" src="./assets/images/business.png" alt="">
+        <h4>You have Business Class status</h4>
+        <p>Enjoy your champange and sleep like a baby.</p>
+      </div>
+
+      <div class="sucess-Image" id="success4">
+        <img src="./assets/images/first.png" alt="">
+        <h4>You have First Class status</h4>
+        <p>Its Dom Perignon and Caviar for you my friend.</p>
+      </div>
+
+      <div id="planecrash">
+        <img src="./assets/images/first.png" alt="">
+        <h4>You have First Class status</h4>
+        <p>Its Dom Perignon and Caviar for you my friend.</p>
+      </div>
+
       <!-- divs to contain a grid of four images -->
       <div class="container" id="image-container">
         <div class="row g-2">
@@ -46,16 +77,19 @@
       <!-- Questions and multiple choice container -->
       <div id="the-game">
         <div>
-          <h3>The Game</h3>
-        </div>
-        <div class="question-container">
-          <div>
-            <div class="questions" id="questionContent"> </div>
-          </div>
+          <div id="end-game">
+            <div>
+              <h3>The Game</h3>
+            </div>
+            <div class="question-container">
+              <div>
+                <div class="questions" id="questionContent"> </div>
+              </div>
 
-          <div id="next-finsih"> <button class="button2" onclick="nextQuestion  ()" id="nextQuestion">Next</button>
+              <div id="next-finsih"> <button class="button2" onclick="nextQuestion  ()" id="nextQuestion">Next</button>
+              </div>
+            </div>
           </div>
-
           <!-- Container to submit initalis and retrieve score at the end of the game -->
           <div id="storeDetails">
             <h4>Type Your Initials to Find Out Your Score. </h4>
@@ -69,7 +103,7 @@
 
     <!-- Entire right square section containing score and countdown timer -->
     <!-- Score -->
-    <section>
+    <section class="background-1">
       <div class="score">
         <h3>The Score</h3>
         <div class="scoreboard" id="scoreboard">
@@ -79,10 +113,9 @@
         </div>
 
         <!-- Countdown Timer  -->
-        <div class="time-container">
-          <div class="timer" id="timerMessage"> </div>
+        <div class="time-container background-1">
+          <div class="timer background-1" id="timerMessage"> </div>
         </div>
-
       </div>
     </section>
 
