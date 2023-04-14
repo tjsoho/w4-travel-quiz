@@ -101,11 +101,11 @@ function questionnaire() {
 		score = 0
 	}
 
-	questionContentEl.innerHTML = `<div class ="questionAll">${questionsAll[questionIndex].question}</div>
-	<button class ="answer0">${questionsAll[questionIndex].choices[0]}</button>
-	<button class ="answer0">${questionsAll[questionIndex].choices[1]}</button>
-	<button class ="answer0">${questionsAll[questionIndex].choices[2]}</button>	
-	<button class ="answer0">${questionsAll[questionIndex].choices[3]}</button>
+	questionContentEl.innerHTML = `<div class ="questionAll row g-2">${questionsAll[questionIndex].question}</div>
+	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[0]}</button>
+	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[1]}</button>
+	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[2]}</button>	
+	<button class ="answer0 col-4">${questionsAll[questionIndex].choices[3]}</button>
 	`;
 
 	// This function is to check the answer the user has chosen.
