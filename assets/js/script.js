@@ -212,6 +212,7 @@ function getWinCount() {
 		document.getElementById('success2').style.display = "block";
 		document.getElementById('end-game').style.display = "none";
 		document.getElementById('storeDetails').style.display = "none";
+		
 	} else if (winCount === 3) {
 		document.getElementById('success3').style.display = "block";
 		document.getElementById('end-game').style.display = "none";

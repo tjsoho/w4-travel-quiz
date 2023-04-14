@@ -32,10 +32,11 @@ body {
 }
 
 header {
+  background-image:linear-gradient(to bottom, #ffffff, #c6a35c78), url(../images/Etihad-triangle.jpeg);
   padding: 40px;
   text-align: center;
-  background: #D9ACF5;
   color: #fff;
+  color: #472F2B;
   border-bottom: 30px #879274;
 }
 
