@@ -28,25 +28,27 @@ var questionsAll =
 
 		{
 			question: "How long is the world's shortest flight?",
-			choices: ["5 minutes", "1 minute", "3 minutes", "10 minutes",],
-			answer: "1 minute"
+			choices: ["A: 5 minutes", "B: 1 minute", "C: 3 minutes", "D: 10 minutes",],
+			answer: "B: 1 minute"
 		},
 
 		{
 			question: "Which is the busiest airport by passenger traffic?",
-			choices: ["Charles de Gualle (Paris)", "Heathrow (London)", "LAX (Las Angeles)", "Jackson (Atlanta)",],
-			answer: "Jackson (Atlanta)"
+			choices: ["A: Charles de Gualle (Paris)", "B: Heathrow (London)", "C: LAX (Las Angeles)", "D: Jackson (Atlanta)",],
+			answer: "D: Jackson (Atlanta)"
 		},
 
 		{
 			question: "What is the most visited country in the world?",
-			choices: ["France", "China", "Italy", "USA",],
-			answer: "France"
+			choices: ["A: France", "B: China", "C: Italy", "D: USA",],
+			answer: "A: France"
 		}
 	]
 
 // START THE GAME. Clicking the button calls the questionnaire1 function which 
 // When user the questions start at 0 and the win and loss count is set to 0.
+
+
 
 function startGame() {
 
@@ -58,8 +60,13 @@ function startGame() {
 	secondsLeft = 90;
 	document.getElementById("image-container").style.display = "none";
 	document.getElementById("the-game").style.display = "block";
-	
+	document.getElementById("storeDetails").style.display = "none";
+	document.getElementById('success1').style.display = "none";
+	document.getElementById('success2').style.display = "none";
+	document.getElementById('success3').style.display = "none";
+	document.getElementById('success4').style.display = "none";
 }
+
 
 // This function disables the buttons once the user has answered the question.
 function disableButtons() {
@@ -123,7 +130,6 @@ function countDown() {
 	// Sets interval in variable
 	var timerInterval = setInterval(function () {
 		secondsLeft--;
-		console.log(secondsLeft)
 		timerEl.textContent = secondsLeft + " seconds until end of game.";
 
 		if (secondsLeft <= 0) {
@@ -163,6 +169,7 @@ nextQuestionEl.addEventListener('click', function () {
 	document.getElementById("answerContent").style.display = "none";
 	console.log(questionIndex)
 	questionnaire()
+	document.getElementById("storeDetails").style.display = "block";
 });
 
 // This function tallys the final score
@@ -172,30 +179,13 @@ function scoreTotal() {
 	return tally;
 }
 
-//function to get the users win count
-function getWinCount() {
-	var winCount = localStorage.getItem("Win Count");
-	if (winCount === null) {
-		winCount = 0;
-	}
-	if (winCount <= 1) {
-		document.getElementById('success1').style.display = "block";
-		document.getElementById('end-game').style.display = "none";
-	}
-	if (winCount == 2) {
-		document.getElementById('success2').style.display = "block";
-		document.getElementById('end-game').style.display = "none";
-	}
-	return winCount;
-
-}
 
 // This function logs the users initials to local storage and shows the user what their final score is
 submit.addEventListener('click', function () {
 	const val = document.querySelector('input').value;
 	localStorage.setItem("Initials", input.value);
 	finalScoreEl.textContent = "You scored " + getWinCount() + "/4";
-
+	
 	//save score to a high score scoreboard in local storage
 	var highScore = localStorage.getItem("High Score");
 	if (highScore === null) {
@@ -205,6 +195,42 @@ submit.addEventListener('click', function () {
 		localStorage.setItem("High Score", scoreTotal());
 	}
 })
+
+//function to get the users win count
+function getWinCount() {
+	var winCount = parseInt(localStorage.getItem("Win Count"));
+	console.log(winCount)
+	if (winCount === null) {
+		winCount = 0;
+	}
+	if (winCount <= 1) {
+		document.getElementById('success1').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+		document.getElementById('storeDetails').style.display = "none";
+		
+	} else if (winCount === 2) {
+		document.getElementById('success2').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+		document.getElementById('storeDetails').style.display = "none";
+	} else if (winCount === 3) {
+		document.getElementById('success3').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+		document.getElementById('storeDetails').style.display = "none";
+	} else if (winCount === 4) {
+		document.getElementById('success4').style.display = "block";
+		document.getElementById('end-game').style.display = "none";
+		document.getElementById('storeDetails').style.display = "none";
+	}
+	return winCount;
+
+}
+
+
+
+
+function reloadGame(){
+	window.location.reload()
+}
 
 
 
