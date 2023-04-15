@@ -58,6 +58,7 @@ function startGame() {
 	winCountEl.textContent = 0;
 	lossCountEl.textContent = 0;
 	secondsLeft = 90;
+	document.getElementById("score-container").style.display = "block";
 	document.getElementById("image-container").style.display = "none";
 	document.getElementById("the-game").style.display = "block";
 	document.getElementById("storeDetails").style.display = "none";
@@ -207,20 +208,25 @@ function getWinCount() {
 		document.getElementById('success1').style.display = "block";
 		document.getElementById('end-game').style.display = "none";
 		document.getElementById('storeDetails').style.display = "none";
+		document.getElementById('finalScore1').textContent = "You scored " + winCount + "/4";
 		
 	} else if (winCount === 2) {
 		document.getElementById('success2').style.display = "block";
 		document.getElementById('end-game').style.display = "none";
 		document.getElementById('storeDetails').style.display = "none";
-		
+		document.getElementById('finalScore2').textContent = "You scored " + winCount + "/4";
+
 	} else if (winCount === 3) {
 		document.getElementById('success3').style.display = "block";
 		document.getElementById('end-game').style.display = "none";
 		document.getElementById('storeDetails').style.display = "none";
+		document.getElementById('finalScore3').textContent = "You scored " + winCount + "/4";
+
 	} else if (winCount === 4) {
 		document.getElementById('success4').style.display = "block";
 		document.getElementById('end-game').style.display = "none";
 		document.getElementById('storeDetails').style.display = "none";
+		document.getElementById('finalScore4').textContent = "You scored " + winCount + "/4";
 	}
 	return winCount;
 
@@ -234,90 +240,3 @@ function reloadGame(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//questionnaire1 ()
-
-/*
-// Click on Next and the following question comes up
-nextQuestionEl.addEventListener('click', nextQuestion)
-
-function nextQuestion() {
-	questionnaire2()
-}
-
-function questionnaire2() {
-	questionContentEl.innerHTML = `<div>${questionsAll[1].question}</div>
-	<button>${questionsAll[0].choices[0]}</button>	
-	<button>${questionsAll[0].choices[1]}</button>	
-	<button>${questionsAll[0].choices[2]}</button>	
-	<button>${questionsAll[0].choices[3]}</button>
-	`;	
-}
-
-function questionnaire3() {
-	questionContentEl.innerHTML = `<div>${questionsAll[2].question}</div>
-	<button>${questionsAll[0].choices[0]}</button>	
-	<button>${questionsAll[0].choices[1]}</button>	
-	<button>${questionsAll[0].choices[2]}</button>	
-	<button>${questionsAll[0].choices[3]}</button>
-	`;	
-}
-
-function questionnaire4() {
-	questionContentEl.innerHTML = `<div>${questionsAll[3].question}</div>
-	<button>${questionsAll[0].choices[0]}</button>	
-	<button>${questionsAll[0].choices[1]}</button>	
-	<button>${questionsAll[0].choices[2]}</button>	
-	<button>${questionsAll[0].choices[3]}</button>
-	`;	
-}
-*/
